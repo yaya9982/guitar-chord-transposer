@@ -5,6 +5,7 @@ import ChordInput from './components/ChordInput.jsx';
 import TransposeControls from './components/TransposeControls.jsx';
 import ModeToggle from './components/ModeToggle.jsx';
 import ProgressionView from './components/ProgressionView.jsx';
+import heroImage from './assets/guitar-hero.jpg';
 import './App.css';
 
 export default function App() {
@@ -38,35 +39,36 @@ export default function App() {
   }, [parsed, validChords, mode, semitoneShift, effectiveCapoFret]);
 
   return (
-    <div className="rig">
-      <header className="panel-plate">
-        <span className="screw screw--tl" />
-        <span className="screw screw--tr" />
-        <span className="screw screw--bl" />
-        <span className="screw screw--br" />
+    <div className="page">
+      <header className="hero" style={{ '--hero-image': `url(${heroImage})` }}>
         <h1 className="title">Chord Transposer</h1>
-        <p className="tagline">Signal path: input &rarr; transpose &rarr; output</p>
+        <p className="tagline">Type a progression, transpose it, and see how to play it — free or with a capo.</p>
+        <p className="photo-credit">
+          Photo: <a href="https://commons.wikimedia.org/wiki/File:Close-up_Acoustic_Guitar.jpg" target="_blank" rel="noreferrer">Pisethinfo</a>, CC BY-SA 3.0
+        </p>
       </header>
 
-      <div className="input-module">
-        <ChordInput value={inputText} onChange={setInputText} />
-      </div>
+      <div className="content">
+        <div className="input-module">
+          <ChordInput value={inputText} onChange={setInputText} />
+        </div>
 
-      <div className="control-strip">
-        <TransposeControls
-          semitoneShift={semitoneShift}
-          onShiftChange={setSemitoneShift}
-          firstChordRoot={validChords[0]?.root ?? null}
-        />
-        <ModeToggle
-          mode={mode}
-          onModeChange={newMode => { setMode(newMode); setCapoOverride(null); }}
-          capoFret={effectiveCapoFret}
-          onCapoOverrideChange={setCapoOverride}
-        />
-      </div>
+        <div className="control-strip">
+          <TransposeControls
+            semitoneShift={semitoneShift}
+            onShiftChange={setSemitoneShift}
+            firstChordRoot={validChords[0]?.root ?? null}
+          />
+          <ModeToggle
+            mode={mode}
+            onModeChange={newMode => { setMode(newMode); setCapoOverride(null); }}
+            capoFret={effectiveCapoFret}
+            onCapoOverrideChange={setCapoOverride}
+          />
+        </div>
 
-      <ProgressionView items={items} />
+        <ProgressionView items={items} />
+      </div>
     </div>
   );
 }

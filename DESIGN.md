@@ -1,202 +1,203 @@
 ---
 name: Chord Transposer
-description: A pedalboard/effects-panel instrument for transposing chord progressions and comparing free vs. capo fingerings.
+description: A full-width, photographic music-reference tool for transposing chord progressions and comparing free vs. capo fingerings.
 colors:
-  panel-bg: "#1b1c1e"
-  panel-raised: "#232527"
-  panel-recessed: "#141516"
-  panel-edge: "#37393c"
-  panel-edge-bright: "#4a4d51"
-  ink: "#e8e6df"
-  ink-dim: "#8b8d90"
-  ink-faint: "#5c5e61"
-  led-green: "#3ddc84"
-  led-amber: "#ffb020"
+  bg: "#111214"
+  surface: "#1b1c1f"
+  surface-raised: "#232427"
+  border: "#313337"
+  border-bright: "#46484d"
+  ink: "#f2f2f0"
+  ink-dim: "#a3a5a9"
+  ink-faint: "#6b6d71"
+  accent: "#1ed760"
+  accent-ink: "#05150a"
+  led-green: "#1ed760"
+  led-amber: "#ff9d2e"
   led-red: "#ff5252"
-  led-off: "#45484c"
+  led-off: "#46484d"
   focus-ring: "#6fd0ff"
 typography:
   display:
-    fontFamily: "'Big Shoulders Stencil', 'Arial Narrow', sans-serif"
-    fontSize: "clamp(1.6rem, 5vw, 2.4rem)"
-    fontWeight: 700
-    lineHeight: 1
-    letterSpacing: "0.06em"
+    fontFamily: "'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    fontSize: "clamp(2rem, 4vw, 3rem)"
+    fontWeight: 800
+    lineHeight: 1.1
+    letterSpacing: "normal"
   body:
-    fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif"
-    fontSize: "17px"
-    fontWeight: 500
-    lineHeight: 1.4
-    letterSpacing: "0.01em"
+    fontFamily: "'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.5
   label:
-    fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif"
-    fontSize: "0.7rem"
-    fontWeight: 600
-    letterSpacing: "0.12em"
+    fontFamily: "'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    fontSize: "0.72rem"
+    fontWeight: 700
+    letterSpacing: "0.08em"
   mono:
     fontFamily: "'JetBrains Mono', ui-monospace, monospace"
     fontWeight: 700
     fontSize: "1rem"
 rounded:
-  sm: "4px"
-  md: "6px"
-  lg: "8px"
-  pill: "999px"
+  sm: "2px"
+  md: "4px"
 spacing:
   sm: "0.5rem"
   md: "1rem"
   lg: "1.5rem"
-  xl: "2rem"
+  xl: "1.75rem"
 components:
   button-footswitch:
-    backgroundColor: "{colors.panel-edge-bright}"
+    backgroundColor: "{colors.surface-raised}"
     textColor: "{colors.ink}"
     typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "0.5rem 1.1rem"
+    rounded: "{rounded.sm}"
+    padding: "0.6rem 1.1rem"
   button-footswitch-on:
-    backgroundColor: "{colors.panel-edge-bright}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.pill}"
-    padding: "0.5rem 1.1rem"
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.accent-ink}"
+    rounded: "{rounded.sm}"
+    padding: "0.6rem 1.1rem"
   input-patch:
-    backgroundColor: "{colors.panel-recessed}"
+    backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
     typography: "{typography.body}"
-    rounded: "{rounded.sm}"
-    padding: "0.65rem 0.85rem"
+    rounded: "{rounded.md}"
+    padding: "0.75rem 1rem"
   select-gear:
-    backgroundColor: "{colors.panel-recessed}"
+    backgroundColor: "{colors.bg}"
     textColor: "{colors.ink}"
     rounded: "{rounded.sm}"
-    padding: "0.4rem 1.6rem 0.4rem 0.5rem"
+    padding: "0.45rem 1.7rem 0.45rem 0.6rem"
   readout-mono:
-    backgroundColor: "{colors.panel-recessed}"
-    textColor: "{colors.led-green}"
+    backgroundColor: "{colors.bg}"
+    textColor: "{colors.accent}"
     typography: "{typography.mono}"
     rounded: "{rounded.sm}"
-    padding: "0.35rem 0.65rem"
+    padding: "0.4rem 0.7rem"
   panel-module:
-    backgroundColor: "{colors.panel-bg}"
+    backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: "0.9rem"
+    rounded: "{rounded.md}"
+    padding: "1rem"
 ---
 
 # Design System: Chord Transposer
 
 ## Overview
 
-**Creative North Star: "The Pedalboard"**
+**Creative North Star: "The Real Music Site"**
 
-Every control reads as a literal piece of effects-pedal gear, not a SaaS settings panel: a brushed-graphite chassis, footswitch-shaped buttons, a rotary knob with a real angle, and LEDs that report true machine state rather than decorate. This is the first design pass on a project that previously had zero visual design (default browser chrome only), built code-led with no approved visual comp — the direction brief and the shipped CSS/JSX are the only sources of truth, and they agree closely.
+This is a redesign, pinned directly by the user, that replaces the project's entire prior visual identity: first a generic centered-card AI-tool look, then a brushed-graphite "pedalboard/effects panel" skin the user rejected as looking "too AI" and "mechanical and dead." In their place is a full-width, flat, near-black page built to match the actual computed styles of Ultimate Guitar, Songsterr, and Spotify — sites this user researched directly rather than an abstract mood board. Nothing here is a metaphorical instrument or chassis; it is an ordinary, trustworthy web tool that happens to be about guitar chords.
 
-The world is dark, dense, and technical: brushed-graphite panels layered with an actual SVG-noise grain texture (not a flat dark-mode gray), silkscreen-style condensed labels, and a strict green/amber/red LED law that never leaks into decoration. Depth comes from panel layering and inset "carved" shadows, not drop shadows floating above the page — surfaces read as recessed jacks and raised plates on one physical chassis, never as cards stacked in space.
+The page is flat and solid at every surface: no gradients, no texture, no bevels. A single saturated accent — a Spotify-green flat fill — carries every primary interactive and "shown as played" state; everything else is near-black or a step of gray. Corners are sharp (2–4px) everywhere except genuinely circular controls (the knob, LED dots). A full-bleed photographic guitar hero, properly licensed and credited on the page, replaces any abstract panel art, anchoring the whole system in a real instrument rather than an illustrated one. The LED semantic law — green/amber/red mapped exclusively to chord state — is the one rule that survives unchanged from the prior world, because it was never the thing the user objected to.
 
 **Key Characteristics:**
-- Brushed-graphite chassis with a real grain texture, not a flat dark theme
+- Flat, solid near-black surfaces at every layer; zero gradients, zero texture, zero embossing
+- One solid brand accent (`#1ed760`) as flat fill, never a tint or gradient
+- Sharp 2–4px corners everywhere; no pill shapes except true circles (knob, LEDs)
+- Single font family (Open Sans, every weight) across the entire UI; JetBrains Mono isolated to the transpose readout's digits
+- A full-bleed, credited photographic hero replaces all illustrated/panel imagery
 - LED color is law: green/amber/red map 1:1 to chord state, never used decoratively
-- Footswitch pill buttons and a rotary-knob stepper stand in for generic buttons/inputs
-- Condensed stencil display face paired with a monospace numeric readout
-- One authored motion moment: a played chord's diagram window glows in its LED color, nothing else animates
 
 ## Colors
 
-A near-monochrome graphite palette with the LED trio as the only saturated color, reserved entirely for chord state.
+A near-monochrome near-black palette with one solid saturated accent and the LED trio, both used only for defined meanings — never as generic decoration.
 
 ### Primary
-- **LED Green** (`#3ddc84`): the "shown-as-played" state — free-mode chords, the knob's position notch, the mono readout's digits, and the active-mode LED. This is the resting/default good state, so it appears most often of the three.
-- **LED Amber** (`#ffb020`): the "capo-adjusted / sounds different than shown" state — capo-mode chord LEDs and diagram accents, and the capo-mode toggle's LED. Also the browser text-selection color, which doubles as an intentional easter-egg wink at the semantic law rather than a fourth meaning.
-- **LED Red** (`#ff5252`): the "unsupported chord" state exclusively — the unsupported module's LED, its border, and its label text.
+- **Signal Green** (`#1ed760`): the single brand accent — active/"on" footswitches (e.g. the Free-mode toggle), input focus borders, the knob's position notch, and the mono readout's digits. It is also `led-green` (see LED Law); the two roles are the same color because "primary accent" and "chord shown as played" are the same everyday-good state in this product.
 
 ### Neutral
-- **Panel Recessed** (`#141516`): the page background and every "carved-in" surface — text input, numeric readout, dropdowns, diagram window background.
-- **Panel Base** (`#1b1c1e`) / **Panel Raised** (`#232527`): the chassis gradient for header and module panels (raised-to-base, top to bottom), giving each panel a subtle lit-from-above bevel.
-- **Panel Edge** (`#37393c`) / **Panel Edge Bright** (`#4a4d51`): borders and the footswitch gradient; "bright" is reserved for hover states and the knob's metal highlight.
-- **Ink** (`#e8e6df`) / **Ink Dim** (`#8b8d90`) / **Ink Faint** (`#5c5e61`): silkscreened text at three legibility tiers — primary labels, secondary/dim labels (tagline, control labels), and the faintest fretboard grid lines.
-- **Focus Ring** (`#6fd0ff`): the one color outside the LED law, reserved for `:focus-visible` and dropdown focus borders so keyboard focus is never confused with a chord-state LED.
+- **Page Ground** (`#111214`): the page background and every "sunk" surface — the numeric readout, gear-select dropdowns, and diagram windows.
+- **Surface** (`#1b1c1f`): the base panel fill for the chord input, control modules, and chord-rack cards.
+- **Surface Raised** (`#232427`): default (non-active) footswitch buttons and the knob body.
+- **Border** (`#313337`) / **Border Bright** (`#46484d`): panel and control borders; "bright" is reserved for hover states and the knob's ring.
+- **Ink** (`#f2f2f0`) / **Ink Dim** (`#a3a5a9`) / **Ink Faint** (`#6b6d71`): text at three legibility tiers — primary labels and headings, secondary/dim labels (tagline, control labels, chevrons), and diagram fretboard lines.
+
+### LED Trio (semantic, not palette)
+- **LED Amber** (`#ff9d2e`): "capo-adjusted / sounds different than shown" — capo-mode chord LEDs, diagram accent dots, and the capo-mode toggle's LED.
+- **LED Red** (`#ff5252`): "unsupported chord" exclusively — the unsupported module's LED, border, and label text.
+- **Focus Ring** (`#6fd0ff`): the one color outside both the accent and the LED law, reserved for `:focus-visible`, so keyboard focus is never confused with chord state.
 
 ### Named Rules
-**The LED Law.** Green, amber, and red exist nowhere in this system except as chord-state signals (shown-as-played / capo-adjusted / unsupported). No badge, chip, success toast, or hover state may borrow an LED color for a meaning outside this trio.
+**The LED Law.** Green, amber, and red exist nowhere in this system except as chord-state signals (shown-as-played / capo-adjusted / unsupported). No badge, toast, or hover state may borrow an LED color for a meaning outside this trio — including green, even though it doubles as the brand accent.
+
+**The One Accent Rule.** Exactly one saturated brand color (`#1ed760`) exists outside the LED trio and focus ring. It is a flat fill only — never a gradient, tint, or tonal ramp — on primary/active interactive elements.
 
 ## Typography
 
-**Display Font:** Big Shoulders Stencil (with Arial Narrow, sans-serif fallback)
-**Body Font:** Barlow Condensed (with Arial Narrow, sans-serif fallback)
-**Label/Mono Font:** JetBrains Mono, for numeric readouts only
+**Display Font:** Open Sans (with -apple-system, Segoe UI, Helvetica, Arial fallback)
+**Body Font:** Open Sans (same stack, all weights)
+**Label/Mono Font:** JetBrains Mono, for the transpose readout's digits only
 
-**Character:** A stenciled, industrial display face over a workhorse condensed body — the pairing reads as equipment silkscreening, not editorial type. All three are self-hosted via `@fontsource` (no CDN or Google Fonts link), matching the product's no-network-dependency-at-runtime principle.
+**Character:** One humanist grotesque, self-hosted via `@fontsource` at every weight the UI uses (400, 600, 700, 800), matching what Ultimate Guitar, Songsterr, and Spotify actually ship. There is no display face distinct from body type — weight and size carry hierarchy, not a second family. JetBrains Mono is the sole exception, isolated to live numeric output so digits don't reflow as they change sign or width.
 
 ### Hierarchy
-- **Display** (700, `clamp(1.6rem, 5vw, 2.4rem)`, line-height 1, letter-spacing 0.06em, uppercase): the panel-plate title only.
-- **Body** (500, 17px, line-height 1.4): running/default text via `body`.
-- **Chord Input** (600, 1.15rem, letter-spacing 0.02em): the patch-style text field, sized up from body to read as the primary instrument input.
-- **Module Label** (700, 1.05rem): each chord card's LED + chord-name header.
-- **Label** (600, 0.7–0.85rem, letter-spacing 0.04–0.14em, uppercase): control-module labels, tagline, footswitch text, field-row labels — the silkscreened-caption tier.
-- **Mono Readout** (700, 1rem, tabular numerals): the transpose semitone readout — the only place numeric values, not labels, are displayed, kept monospaced so digits don't reflow the knob layout as they change sign/width.
+- **Display** (800, `clamp(2rem, 4vw, 3rem)`, line-height 1.1): the hero page title only.
+- **Body** (400, 16px, line-height 1.5): running/default text, the tagline.
+- **Chord Input** (400, 1.1rem, line-height 1.3): the patch-style text field, sized up from body as the primary instrument input.
+- **Module Label** (700, 1.1rem): each chord card's LED + chord-name header.
+- **Label** (700, 0.72–0.75rem, letter-spacing 0.04–0.08em, uppercase): control-module labels, field-row labels.
+- **Footswitch Label** (600, 0.9rem): button text.
+- **Mono Readout** (700, 1rem, tabular numerals): the transpose semitone readout — the only place JetBrains Mono appears.
 
 ### Named Rules
-**The Two-Register Rule.** Only two type roles exist: the stenciled display face (one headline, once per screen) and condensed Barlow Condensed for everything else, switching to JetBrains Mono only for live numeric readouts. No third display-weight face is introduced for emphasis.
+**The One-Family Rule.** Open Sans is the only typeface used for every role — headline, body, label, button — at whatever weight the role needs. JetBrains Mono is carved out for exactly one purpose: the live numeric transpose readout. No third face is introduced for emphasis or display.
 
 ## Layout
 
-A single-column instrument rig, capped at 900px and centered (`.rig`, `max-width: 900px`), reflecting a rack of gear rather than a responsive marketing grid. Vertical rhythm stacks fixed instrument modules top to bottom: panel-plate header → patch input + footswitch chord buttons → a two-up control strip (transpose module, mode module) → a rack grid of chord-diagram modules.
+A full-width page (`.page`, `max-width: 1600px`, centered) — deliberately not locked to a small centered card, refusing both the prior pedalboard-rig layout and the generic-AI-tool centered-card layout before it. A full-bleed photographic hero spans the entire viewport width with a dark scrim, carrying the title, tagline, and photo credit. Below it, content sits in a generously wide column (`clamp(1rem, 4vw, 3rem)` side padding) stacked top to bottom: chord text input + click-to-add chord buttons → a two-up control strip (transpose module, mode module, `flex: 1 1 240px` each) → a "Play all" button → the chord-diagram rack.
 
-The chord rack is a `repeat(auto-fill, minmax(150px, 1fr))` CSS grid (130px minimum on the ≤480px breakpoint), so modules wrap responsively without a JS-driven breakpoint system. The control strip is a flex row of two modules (`flex: 1 1 220px` each) that stacks to a single column under 480px. Spacing runs on an approximate rem rhythm: 0.5rem (tight, within-control gaps), 0.75–1rem (module internal padding, rack gaps), 1.5–1.75rem (between major sections), 2rem (outer page padding on desktop, reduced to 1.25rem on mobile).
+The chord rack is a `repeat(auto-fill, minmax(160px, 1fr))` CSS grid (140px minimum under 480px), so cards wrap responsively without JS breakpoints. The control strip stacks to a single column under 480px. Spacing runs a rem rhythm: 0.5rem (tight/within-control gaps), 0.75–1rem (module internal padding, rack gaps), 1.5–1.75rem (between major sections), and the hero/content side padding scales with viewport via `clamp()`.
 
 ## Elevation & Depth
 
-This is a carved-panel system, not a floating-card system: depth comes from inset shadows that read as recessed jacks/screens, plus a top-lit outer bevel on raised panels — never a shadow that lifts an element above the page.
-
-### Shadow Vocabulary
-- **Panel bevel** (`0 1px 0 rgba(255,255,255,0.04) inset, 0 6px 16px rgba(0,0,0,0.35)`): the header panel-plate — a bright top edge plus a soft drop into the page.
-- **Recessed well** (`inset 0 2px 4px rgba(0,0,0,0.5)` to `inset 0 2px 6px rgba(0,0,0,0.6)`): text input, dropdowns, readout, diagram window — anything meant to read as carved into the chassis rather than sitting on it.
-- **Footswitch press** (`0 2px 0 rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.06) inset` at rest, collapsing to `0 0 0` + `translateY(2px)` on `:active`): buttons physically depress when clicked.
-- **LED glow** (`0 0 6px 1px` in the state's `-glow` rgba variant): the only shadow that is decorative-emissive rather than structural — it's how an LED reads as lit rather than painted.
+Flat by default: no shadows anywhere on static surfaces. Panels, buttons, and inputs are distinguished from their background by a 1px border and a fill-color step (bg → surface → surface-raised), not by elevation. The only shadow in the system is the LED glow (`0 0 6px 1px` in the state's glow color) on lit LED dots — an emissive effect describing a lit indicator, not a lifted card — and the one authored motion moment described below.
 
 ### Named Rules
-**The Carved, Not Lifted Rule.** Shadows describe material (a bevel, a recess, a switch throw) or a lit LED. Nothing in this system uses a shadow purely to imply a card floating above its neighbors.
+**The Flat-By-Default Rule.** No `box-shadow` is used to lift any card, panel, button, or input above the page. Depth, where it exists at all, is a border and a fill-step, or (for LEDs only) an emissive glow.
 
 ## Shapes
 
-Corner radius scales with a control's physical role rather than a flat global default: 4px (`sm`) for carved/recessed elements (input, readout, dropdown, gear-select) that sit flush in the chassis; 6px (`md`) for the header plate and control modules; 8px (`lg`) for chord-rack module panels, the largest discrete unit; and a full pill (`999px`) reserved for footswitch buttons, whose round-ended shape is what reads as "switch" rather than "button." The rotary knob and LEDs are true circles. Four corner "screws" (6px radial-gradient circles) are pinned to the header plate's corners as a literal hardware detail, not repeated elsewhere.
+Corners are sharp and near-square throughout: 2px (`sm`) for buttons, dropdowns, and the numeric readout; 4px (`md`) for the chord input, control modules, and chord-rack panels. No pill shapes exist anywhere in the button system — a deliberate reversal of the prior pedalboard world's pill-shaped footswitches. The rotary transpose knob and the LED dots are the only true circles in the system, reserved for controls that are physically round in real life.
 
 ## Components
 
 ### Buttons (Footswitches)
-- **Shape:** full pill (999px), 0.5rem 1.1rem padding; the transpose +/- stepper variant is smaller and 6px-radius instead of pill (`.footswitch--stepper`).
-- **Default:** vertical gradient from panel-edge-bright to panel-bg, 1px panel-edge border, ink text, uppercase Barlow Condensed label (600, 0.85rem, letter-spacing 0.04em).
-- **Active/On:** border recolors to the relevant LED color (`.footswitch--on` → green border in Free mode context) and the leading LED dot lights.
-- **Hover:** border brightens to panel-edge-bright.
-- **Active/press:** translates down 2px and its shadow collapses to flat, simulating a physical switch throw (120ms ease transition).
-- **Disabled:** 0.35 opacity, not-allowed cursor.
+- **Shape:** 2px radius, 0.6rem 1.1rem padding (`.footswitch`); no pill variant.
+- **Default:** flat `surface-raised` fill, 1px `border`, ink text, 600-weight 0.9rem label.
+- **Hover:** border brightens to `border-bright`, fill shifts to `border`.
+- **Active/press:** fill shifts to `border-bright`.
+- **On/active state** (`.footswitch--on`, e.g. the Free-mode toggle): flat `accent` fill, `accent-ink` text — the one place the brand accent appears as a full button fill rather than an outline or text color.
+- **Disabled:** 0.4 opacity, not-allowed cursor.
 
 ### Inputs / Fields
-- **Patch input** (chord text field): panel-recessed background, 1px panel-edge border, 4px radius, inset shadow (recessed well), 1.15rem semibold text.
-- **Gear-select** (target key / capo fret dropdowns): native `<select>` with `appearance: none` and a custom inline-SVG chevron (no native OS chrome), panel-recessed background, 4px radius, inset shadow matching the patch input.
-- **Focus:** all interactive elements get a 2px focus-ring-blue outline (`:focus-visible`, 2px offset) — the one place blue appears, deliberately outside the LED law so focus is never mistaken for chord state.
-- **Disabled field row:** the whole row (label + control) drops to 0.35 opacity via `.field-row--dim` rather than styling the control alone.
+- **Patch input** (chord text field): `surface` background, 1px `border`, 4px radius, no inset shadow; border recolors to `accent` on focus.
+- **Gear-select** (target key / capo fret dropdowns): native `<select>` with `appearance: none` and a custom inline-SVG chevron, `bg` background, 2px radius, border recolors to `accent` on focus.
+- **Focus:** all interactive elements get a 2px `focus-ring` (`#6fd0ff`) outline via `:focus-visible`, 2px offset — kept outside both the accent and LED colors so keyboard focus is never mistaken for chord state.
+- **Disabled field row:** the whole row (label + control) drops to 0.35 opacity via `.field-row--dim`.
 
 ### Cards / Containers (Module Panels)
-- **Corner Style:** 8px radius for chord-rack modules; 6px for control-strip modules and the header plate.
-- **Background:** grain texture layered under a raised-to-base vertical gradient (`var(--grain), linear-gradient(180deg, panel-raised, panel-bg)`) for header and chord modules; flat grain-over-panel-bg for control modules (no gradient, since they're smaller/flatter units).
-- **Border:** 1px solid panel-edge; an unsupported chord module overrides this to led-red.
-- **Internal Padding:** 0.75–1rem depending on module size.
+- **Corner Style:** 4px radius, uniform across control modules and chord-rack modules (no radius-by-size tiering).
+- **Background:** flat `surface` fill, no gradient, no texture.
+- **Border:** 1px solid `border`; an unsupported chord module overrides this to `led-red`.
+- **Internal Padding:** 1rem (rack/control modules).
 
 ### Chord Diagram Module (signature component)
-Each resolved chord renders as a self-contained "rack module": an LED + chord-name header, an optional amber "sounds as X" sub-line when capo-adjusted, a recessed SVG diagram window, and its own Play footswitch. The diagram itself draws strings/frets in ink-faint, open/muted-string marks in ink-dim, and fretted-note dots in the module's semantic LED color (green or amber) via an `accent` prop threaded down to the SVG — so the fingering diagram and the LED header always agree on color. Playing a chord (via its own Play button, or the shared "Play All") triggers the diagram window's one authored motion: a 550ms glow pulse in that same LED color (`@keyframes led-pulse`), then settles back to its resting inset shadow. No other element in the system animates.
+Each resolved chord renders as a self-contained card: an LED + chord-name header, an optional amber "sounds as X" sub-line when capo-adjusted, an SVG diagram window on the flat `bg` ground, and its own Play footswitch. The diagram draws strings/frets in `ink-faint`, open/muted-string marks in `ink-dim`, and fretted-note dots in the module's semantic LED color (green or amber) via an `accent` prop threaded to the SVG — so the fingering diagram and the LED header always agree on color. Playing a chord triggers the one authored motion in the system: a 550ms glow pulse on the diagram window in that same LED color (`@keyframes led-pulse`), settling back to flat. No other element animates.
 
 ## Do's and Don'ts
 
 ### Do:
 - **Do** reserve green/amber/red exclusively for shown-as-played / capo-adjusted / unsupported chord state, per the LED Law.
-- **Do** use inset "recessed" shadows for anything meant to be carved into the panel (inputs, readouts, diagram windows), and only the footswitch's flat-press shadow for anything meant to be a physical switch.
-- **Do** pair the stencil display face with condensed Barlow Condensed and JetBrains Mono for numerals — no other typeface families.
-- **Do** give footswitch buttons a pill shape and a translateY(2px) press state; this is what distinguishes them from a generic button.
-- **Do** layer the SVG grain texture under any new large panel surface (header-scale or module-scale); a flat dark-gray panel is not on-brand for this world.
+- **Do** keep every surface flat — solid fill plus a 1px border — with no gradients, texture, or drop shadows, per the Flat-By-Default Rule.
+- **Do** use Open Sans for every text role at whatever weight the role needs; reserve JetBrains Mono for the live numeric transpose readout only.
+- **Do** keep corners sharp (2–4px); reserve true circles for controls that are physically round (the knob, LED dots).
+- **Do** use the full-bleed, credited photographic hero as the system's imagery convention — real photography, not illustration or abstract panel art.
 
 ### Don't:
-- **Don't** use a drop shadow to lift a card above the page — this is a carved-chassis system, not a floating-card system (see The Carved, Not Lifted Rule).
+- **Don't** reintroduce a pill-shaped button or any rounded shape beyond 4px; the prior pedalboard world's pill footswitches are explicitly superseded, not an option to fall back to.
+- **Don't** add a metallic gradient, bevel, grain texture, or inset "carved" shadow to any surface; this build's whole point was removing that identity.
 - **Don't** introduce a fourth accent color, or reuse green/amber/red for anything other than chord state (success toasts, generic highlights, etc.).
-- **Don't** use native OS `<select>` chrome; dropdowns get the gear-select treatment (appearance: none + inline SVG chevron).
+- **Don't** lock content to a small centered card; the layout is deliberately full-width.
 - **Don't** add motion beyond the single LED-pulse-on-play moment; this system authors exactly one animation, not a general motion language.

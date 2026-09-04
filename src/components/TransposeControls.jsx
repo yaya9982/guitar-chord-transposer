@@ -8,10 +8,14 @@ export default function TransposeControls({ semitoneShift, onShiftChange, firstC
     onShiftChange(shift);
   };
 
-  // Map the current shift onto a 300-degree sweep (12 detents, one per
-  // semitone) so the knob's notch always shows a real rotary position.
-  const normalized = ((semitoneShift % 12) + 12) % 12;
-  const knobAngle = -150 + (normalized / 11) * 300;
+  // Bipolar mapping: 0 semitones points the notch straight up (neutral),
+  // rotating 30 degrees per semitone clockwise for + and counterclockwise
+  // for -. The only seam is at the tritone (+/-6), the one point a cyclic
+  // quantity has to wrap on a static dial -- placed opposite "up" instead
+  // of right next to it.
+  const raw = ((semitoneShift % 12) + 12) % 12;
+  const signed = raw > 6 ? raw - 12 : raw;
+  const knobAngle = signed * 30;
 
   return (
     <div className="control-module">

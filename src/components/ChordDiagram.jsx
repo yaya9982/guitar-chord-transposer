@@ -63,7 +63,7 @@ export default function ChordDiagram({ voicing, accent = '--led-green' }) {
           <g key={`mark-${i}`}>
             <circle cx={x} cy={y} r={6} fill={litColor} />
             {fingers[i] > 0 && (
-              <text x={x - 3} y={y + 4} fontSize="9" fontFamily="var(--font-mono)" fill="var(--panel-recessed)">{fingers[i]}</text>
+              <text x={x - 3} y={y + 4} fontSize="9" fontFamily="var(--font-mono)" fill="var(--bg)">{fingers[i]}</text>
             )}
           </g>
         );

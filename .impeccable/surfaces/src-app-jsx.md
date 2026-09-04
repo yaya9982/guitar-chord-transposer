@@ -7,20 +7,14 @@ related_targets: []
 
 ## Direction contract
 
-THESIS: Every control is a literal piece of pedalboard gear — a knob, a footswitch, an LED status light — refusing the flat card-and-dropdown SaaS-tool layout every generic "chord app" ships.
+THESIS: A real, full-width music-reference webpage -- the flat solid colors, sharp corners, and edge-to-edge layout of the guitar/music sites players actually use daily -- refusing the enclosed metallic control-panel identity (and the generic centered-card AI-tool look before that) this surface previously carried.
 
-OWN-WORLD: Brushed dark-graphite panel ground; LED colors are a semantic law reserved per state (green = resolved/supported chord, amber = capo-adjusted/sounds different than shown, red = unsupported) and never decorative elsewhere; chunky knob/footswitch-styled controls for steppers and toggles; condensed stencil/silkscreen-style labels paired with a monospace numeric readout for semitone count and capo fret.
+OWN-WORLD: Near-black flat grounds (#111214 page, #1b1c1f/#232427 surfaces, no gradients, no texture) with a single solid brand accent, a Spotify-style green (#1ed760), used flat-fill on primary interactive elements; sharp 2-4px corners everywhere (no pill shapes); Open Sans across every weight (400 body, 600-800 headings/labels) matching the humanist grotesque every researched reference (Ultimate Guitar, Songsterr, Spotify) actually ships, with JetBrains Mono reserved for the transpose readout's numerals. LED semantic law preserved from the prior world: green = shown-as-played, amber = capo-adjusted, red = unsupported chord, reserved exclusively.
 
-STORY: The player understands this is precision gear, not a toy; trusts that every dial and light corresponds to a real state; types or picks a progression, turns the transpose knob or hits the capo footswitch, reads the panel, hits play.
+STORY: The player lands on a real, photographic guitar (not an abstract panel), reads the tool's purpose in one line, types or picks a progression, and works the same free/capo controls as before -- now legible as an ordinary, trustworthy web tool rather than a novelty instrument skin.
 
-FIRST VIEWPORT: A silkscreened panel-plate header at top. Input row styled as a patch-style text field with footswitch-shaped common-chord buttons beneath it. A control strip holding the transpose stepper (knob-styled, monospace readout) and the free/capo mode toggle (footswitch-styled, LED-lit) plus capo-fret control when active. Below, chord results render as individual module panels, each an LED-lit diagram window with its own footswitch play button.
+FIRST VIEWPORT: A full-bleed photographic hero (a real, CC-licensed close-up guitar photo, credited) with a dark scrim, carrying the title and one-line description; page content below sits in a generously wide (not edge-locked to 900px) column of flat, sharp-cornered panels: chord input, transpose/mode controls, then the chord-diagram rack.
 
-FORM: Pedalboard / effects panel — grounded candidate #1 of 7 derived directions (pedalboard panel, tab-chart notation, tuner LCD, circuit board, hardshell case interior, guitar-body wood grain, road case). Chosen as IMPECCABLE'S PICK over the dice-assigned direction (hardshell case interior, candidate #5). Seed key: 2fbcd527.
-
-Raises (donated from declined/competitive challengers dealt against the assigned direction, carried forward into this chosen form):
-- FROM variety-telop-caption-field (declined): state changes communicate via LED brightness/glow pulse, never by shifting layout position.
-- FROM notation-diagram-systems-orienteering-map (competitive): the panel's silkscreened structure (labels, fret grid) stays visually fixed and permanent; only the lit LEDs/dots for the current chord are the dynamic, per-chord overlay.
-- FROM textiles-weave-drape-fashion-drawcord-transforming-cape (declined) + medium-native-crt-arcade-pixel-glow (declined): LED/accent color is a strict semantic law — one color per state, reserved exclusively, never reused decoratively.
-- FROM signals-instruments-night-flight-six-pack (declined): each control cluster (transpose, mode, capo) reads as one self-contained instrument module with one truth, not a blended toolbar row.
+FORM: Redesign, pinned directly by the user rather than rolled -- they named the specific complaints (metallic gradients, roundness, cramped width, mechanical/lifeless feel, wrong fonts) and directed research into real music-site conventions (Ultimate Guitar, Songsterr, Spotify, inspected directly via their live computed styles: flat solid buttons, near-square corners, Open-Sans-class sans-serif fonts, full-width layout, real photography) rather than an abstract concept roll. Supersedes the prior "Pedalboard / effects panel" direction (seed key 2fbcd527) entirely.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.

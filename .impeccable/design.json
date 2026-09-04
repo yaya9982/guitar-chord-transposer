@@ -4,39 +4,34 @@
   "title": "Design System: Chord Transposer",
   "extensions": {
     "colorMeta": {
-      "panel-bg": { "role": "neutral", "displayName": "Panel Base", "canonical": "#1b1c1e", "tonalRamp": ["#0e0f10", "#141516", "#1b1c1e", "#232527", "#2d2f31", "#37393c", "#4a4d51", "#8b8d90"] },
-      "panel-raised": { "role": "neutral", "displayName": "Panel Raised", "canonical": "#232527", "tonalRamp": ["#121314", "#191a1b", "#232527", "#2c2e30", "#37393c", "#45484c", "#5c5e61", "#8b8d90"] },
-      "panel-recessed": { "role": "neutral", "displayName": "Panel Recessed", "canonical": "#141516", "tonalRamp": ["#08090a", "#0e0f10", "#141516", "#1b1c1e", "#232527", "#2d2f31", "#37393c", "#4a4d51"] },
-      "panel-edge": { "role": "neutral", "displayName": "Panel Edge", "canonical": "#37393c", "tonalRamp": ["#1b1c1e", "#232527", "#2d2f31", "#37393c", "#45484c", "#5c5e61", "#8b8d90", "#b5b7ba"] },
-      "panel-edge-bright": { "role": "neutral", "displayName": "Panel Edge Bright", "canonical": "#4a4d51", "tonalRamp": ["#232527", "#2d2f31", "#37393c", "#4a4d51", "#5c5e61", "#75787c", "#9b9ea1", "#c5c7c9"] },
-      "ink": { "role": "neutral", "displayName": "Silkscreen Ink", "canonical": "#e8e6df", "tonalRamp": ["#5c5e61", "#75787c", "#9b9ea1", "#b5b7ba", "#cacbc5", "#e8e6df", "#f2f1eb", "#faf9f5"] },
-      "ink-dim": { "role": "neutral", "displayName": "Silkscreen Ink Dim", "canonical": "#8b8d90", "tonalRamp": ["#37393c", "#45484c", "#5c5e61", "#75787c", "#8b8d90", "#9b9ea1", "#b5b7ba", "#cacbc5"] },
-      "ink-faint": { "role": "neutral", "displayName": "Silkscreen Ink Faint", "canonical": "#5c5e61", "tonalRamp": ["#232527", "#2d2f31", "#37393c", "#45484c", "#5c5e61", "#75787c", "#8b8d90", "#9b9ea1"] },
-      "led-green": { "role": "primary", "displayName": "LED Green (shown-as-played)", "canonical": "#3ddc84", "tonalRamp": ["#0f3a22", "#155b34", "#1e7d47", "#279e5a", "#3ddc84", "#6ee5a3", "#9eedc0", "#cff6de"] },
-      "led-amber": { "role": "secondary", "displayName": "LED Amber (capo-adjusted)", "canonical": "#ffb020", "tonalRamp": ["#4d3300", "#804f00", "#b36c00", "#e68f00", "#ffb020", "#ffc659", "#ffdc93", "#fff2cc"] },
+      "bg": { "role": "neutral", "displayName": "Page Ground", "canonical": "#111214", "tonalRamp": ["#0a0a0b", "#111214", "#1b1c1f", "#232427", "#313337", "#46484d", "#6b6d71", "#a3a5a9"] },
+      "surface": { "role": "neutral", "displayName": "Surface", "canonical": "#1b1c1f", "tonalRamp": ["#0e0f10", "#141516", "#1b1c1f", "#232427", "#2d2f31", "#313337", "#46484d", "#6b6d71"] },
+      "surface-raised": { "role": "neutral", "displayName": "Surface Raised", "canonical": "#232427", "tonalRamp": ["#121314", "#191a1b", "#1b1c1f", "#232427", "#2d2f31", "#313337", "#46484d", "#6b6d71"] },
+      "border": { "role": "neutral", "displayName": "Border", "canonical": "#313337", "tonalRamp": ["#18191a", "#1f2022", "#272829", "#313337", "#3d3f42", "#46484d", "#6b6d71", "#a3a5a9"] },
+      "border-bright": { "role": "neutral", "displayName": "Border Bright", "canonical": "#46484d", "tonalRamp": ["#232427", "#2d2f31", "#313337", "#3d3f42", "#46484d", "#6b6d71", "#a3a5a9", "#c9cacc"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#f2f2f0", "tonalRamp": ["#6b6d71", "#a3a5a9", "#c9cacc", "#dcdddc", "#e9e9e7", "#f2f2f0", "#f8f8f7", "#ffffff"] },
+      "ink-dim": { "role": "neutral", "displayName": "Ink Dim", "canonical": "#a3a5a9", "tonalRamp": ["#46484d", "#6b6d71", "#83858a", "#a3a5a9", "#b6b8bb", "#c9cacc", "#dcdddc", "#e9e9e7"] },
+      "ink-faint": { "role": "neutral", "displayName": "Ink Faint", "canonical": "#6b6d71", "tonalRamp": ["#313337", "#3d3f42", "#46484d", "#575a5e", "#6b6d71", "#83858a", "#a3a5a9", "#c9cacc"] },
+      "accent": { "role": "primary", "displayName": "Signal Green", "canonical": "#1ed760", "tonalRamp": ["#04150a", "#0a3319", "#0f5726", "#157d36", "#1ed760", "#5ce491", "#94efb9", "#cdf9dc"] },
+      "accent-ink": { "role": "neutral", "displayName": "Signal Green Ink", "canonical": "#05150a", "tonalRamp": ["#000000", "#031008", "#05150a", "#0a2515", "#123d22", "#1e6136", "#2f8a4e", "#4bb56e"] },
+      "led-amber": { "role": "secondary", "displayName": "LED Amber (capo-adjusted)", "canonical": "#ff9d2e", "tonalRamp": ["#4d2e00", "#804d00", "#b36c00", "#e68a00", "#ff9d2e", "#ffb864", "#ffd39a", "#ffedd0"] },
       "led-red": { "role": "tertiary", "displayName": "LED Red (unsupported)", "canonical": "#ff5252", "tonalRamp": ["#4d0f0f", "#801919", "#b32222", "#e63636", "#ff5252", "#ff8080", "#ffabab", "#ffd6d6"] },
-      "led-off": { "role": "neutral", "displayName": "LED Off", "canonical": "#45484c", "tonalRamp": ["#1e1f21", "#28292b", "#37393c", "#45484c", "#5c5e61", "#75787c", "#9b9ea1", "#c5c7c9"] },
+      "led-off": { "role": "neutral", "displayName": "LED Off", "canonical": "#46484d", "tonalRamp": ["#1e1f21", "#28292b", "#313337", "#3d3f42", "#46484d", "#6b6d71", "#a3a5a9", "#c9cacc"] },
       "focus-ring": { "role": "neutral", "displayName": "Focus Ring Blue", "canonical": "#6fd0ff", "tonalRamp": ["#003a52", "#00567a", "#0075a6", "#2b9ed4", "#6fd0ff", "#9adeff", "#c2ebff", "#e6f8ff"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Panel-plate title only, once per screen." },
-      "body": { "displayName": "Body", "purpose": "Default running text, labels' base family." },
-      "label": { "displayName": "Silkscreen Label", "purpose": "Uppercase caption tier: control-module labels, tagline, footswitch text, field-row labels." },
-      "mono": { "displayName": "Mono Readout", "purpose": "Live numeric readouts only (semitone stepper); tabular numerals." }
+      "display": { "displayName": "Display", "purpose": "Hero page title only, once per screen." },
+      "body": { "displayName": "Body", "purpose": "Default running text; also the base family for every label and button role at their own weight." },
+      "label": { "displayName": "Label", "purpose": "Uppercase caption tier: control-module labels, field-row labels." },
+      "mono": { "displayName": "Mono Readout", "purpose": "Live numeric readout only (transpose semitone stepper); tabular numerals." }
     },
     "shadows": [
-      { "name": "panel-bevel", "value": "0 1px 0 rgba(255,255,255,0.04) inset, 0 6px 16px rgba(0,0,0,0.35)", "purpose": "Header panel-plate: bright top edge over a soft drop into the page." },
-      { "name": "recessed-well", "value": "inset 0 2px 4px rgba(0,0,0,0.5)", "purpose": "Carved-in controls: patch input, gear-select, readout." },
-      { "name": "recessed-well-deep", "value": "inset 0 2px 6px rgba(0,0,0,0.6)", "purpose": "Diagram window well, deeper than field wells." },
-      { "name": "footswitch-rest", "value": "0 2px 0 rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.06) inset", "purpose": "Footswitch button at rest, implying a raised switch cap." },
-      { "name": "footswitch-pressed", "value": "0 0 0 rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.04) inset", "purpose": "Footswitch :active, paired with translateY(2px)." },
-      { "name": "led-glow-green", "value": "0 0 6px 1px rgba(61,220,132,0.55)", "purpose": "Lit-LED emissive glow, shown-as-played state." },
-      { "name": "led-glow-amber", "value": "0 0 6px 1px rgba(255,176,32,0.55)", "purpose": "Lit-LED emissive glow, capo-adjusted state." },
-      { "name": "led-glow-red", "value": "0 0 6px 1px rgba(255,82,82,0.5)", "purpose": "Lit-LED emissive glow, unsupported state." }
+      { "name": "led-glow-green", "value": "0 0 6px 1px rgba(30,215,96,0.5)", "purpose": "Lit-LED emissive glow, shown-as-played / accent-active state." },
+      { "name": "led-glow-amber", "value": "0 0 6px 1px rgba(255,157,46,0.5)", "purpose": "Lit-LED emissive glow, capo-adjusted state." },
+      { "name": "led-glow-red", "value": "0 0 6px 1px rgba(255,82,82,0.45)", "purpose": "Lit-LED emissive glow, unsupported state." }
     ],
     "motion": [
-      { "name": "led-pulse", "value": "550ms ease-out, box-shadow inset-well -> inset-well + 0 0 16px currentColor -> inset-well + transparent", "purpose": "The system's one authored motion: a played chord's diagram window glows in its semantic LED color, then settles." },
-      { "name": "footswitch-press", "value": "transform 120ms ease, box-shadow 120ms ease", "purpose": "Button depress feedback on click." }
+      { "name": "led-pulse", "value": "550ms ease-out, box-shadow 0 0 0 currentColor -> 0 0 16px currentColor -> 0 0 0 transparent", "purpose": "The system's one authored motion: a played chord's diagram window glows in its semantic LED color, then settles flat." }
     ],
     "breakpoints": [
       { "name": "mobile", "value": "480px" }
@@ -47,25 +42,25 @@
       "name": "Footswitch Button",
       "kind": "button",
       "refersTo": "button-footswitch",
-      "description": "Pill-shaped switch-styled button used for chord-add buttons, play, mode toggle, and the transpose stepper.",
+      "description": "Flat, sharp-cornered button used for chord-add buttons, play, mode toggle, and the transpose stepper.",
       "html": "<button class=\"ds-footswitch\">Play</button>",
-      "css": ".ds-footswitch { background: linear-gradient(180deg, #4a4d51, #1b1c1e); border: 1px solid #37393c; border-radius: 999px; color: #e8e6df; font: 600 0.85rem/1 'Barlow Condensed', 'Arial Narrow', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.5rem 1.1rem; cursor: pointer; box-shadow: 0 2px 0 rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.06) inset; transition: transform 120ms ease, box-shadow 120ms ease; } .ds-footswitch:hover { border-color: #4a4d51; } .ds-footswitch:active { transform: translateY(2px); box-shadow: 0 0 0 rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.04) inset; } .ds-footswitch:focus-visible { outline: 2px solid #6fd0ff; outline-offset: 2px; }"
+      "css": ".ds-footswitch { background: #232427; border: 1px solid #313337; border-radius: 2px; color: #f2f2f0; font: 600 0.9rem/1 'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; padding: 0.6rem 1.1rem; cursor: pointer; } .ds-footswitch:hover:not(:disabled) { border-color: #46484d; background: #313337; } .ds-footswitch:active:not(:disabled) { background: #46484d; } .ds-footswitch:disabled { opacity: 0.4; cursor: not-allowed; } .ds-footswitch:focus-visible { outline: 2px solid #6fd0ff; outline-offset: 2px; }"
     },
     {
-      "name": "Footswitch Button (On, LED-lit)",
+      "name": "Footswitch Button (On, accent-lit)",
       "kind": "button",
       "refersTo": "button-footswitch-on",
-      "description": "Active-state footswitch with border and LED dot recolored to the relevant semantic state (e.g. Free mode = green).",
-      "html": "<button class=\"ds-footswitch ds-footswitch--on\"><span class=\"ds-led ds-led--green\"></span> Free</button>",
-      "css": ".ds-footswitch--on { border-color: #3ddc84; } .ds-led { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #45484c; vertical-align: middle; margin-right: 0.3em; } .ds-led--green { background: #3ddc84; box-shadow: 0 0 6px 1px rgba(61,220,132,0.55); }"
+      "description": "Active-state footswitch (e.g. Free mode) with a flat solid accent fill; the LED dot recolors to the accent-ink so it stays visible against its own fill color.",
+      "html": "<button class=\"ds-footswitch ds-footswitch--on\"><span class=\"ds-led ds-led--on\"></span> Free</button>",
+      "css": ".ds-footswitch--on { background: #1ed760; border-color: #1ed760; color: #05150a; } .ds-led { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #46484c; vertical-align: middle; margin-right: 0.3em; } .ds-led--on { background: #05150a; box-shadow: none; }"
     },
     {
       "name": "Patch Input",
       "kind": "input",
       "refersTo": "input-patch",
-      "description": "Recessed text field for typing a chord progression.",
+      "description": "Flat text field for typing a chord progression; no inset shadow, border recolors to accent on focus.",
       "html": "<input class=\"ds-patch-input\" type=\"text\" placeholder=\"G D Em C\" value=\"G D Em C\" />",
-      "css": ".ds-patch-input { width: 100%; background: #141516; border: 1px solid #37393c; border-radius: 4px; padding: 0.65rem 0.85rem; color: #e8e6df; font: 600 1.15rem/1.3 'Barlow Condensed', 'Arial Narrow', sans-serif; letter-spacing: 0.02em; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); } .ds-patch-input::placeholder { color: #8b8d90; } .ds-patch-input:focus-visible { outline: 2px solid #6fd0ff; outline-offset: 2px; }"
+      "css": ".ds-patch-input { width: 100%; background: #1b1c1f; border: 1px solid #313337; border-radius: 4px; padding: 0.75rem 1rem; color: #f2f2f0; font: 400 1.1rem/1.3 'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; } .ds-patch-input::placeholder { color: #6b6d71; } .ds-patch-input:focus { border-color: #1ed760; } .ds-patch-input:focus-visible { outline: 2px solid #6fd0ff; outline-offset: 2px; }"
     },
     {
       "name": "Gear Select",
@@ -73,51 +68,54 @@
       "refersTo": "select-gear",
       "description": "Custom-chevron dropdown (no native OS chrome) used for target key and capo fret.",
       "html": "<select class=\"ds-gear-select\"><option>Choose</option><option>C</option><option>D</option></select>",
-      "css": ".ds-gear-select { appearance: none; -webkit-appearance: none; background-color: #141516; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0L5 6L10 0Z' fill='%238b8d90'/%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right 0.5rem center; border: 1px solid #37393c; border-radius: 4px; color: #e8e6df; font: 600 0.9rem 'Barlow Condensed', 'Arial Narrow', sans-serif; padding: 0.4rem 1.6rem 0.4rem 0.5rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); } .ds-gear-select:focus { border-color: #6fd0ff; }"
+      "css": ".ds-gear-select { appearance: none; -webkit-appearance: none; background-color: #111214; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0L5 6L10 0Z' fill='%23a3a5a9'/%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right 0.6rem center; border: 1px solid #313337; border-radius: 2px; color: #f2f2f0; font: 600 0.9rem 'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; padding: 0.45rem 1.7rem 0.45rem 0.6rem; } .ds-gear-select:focus { border-color: #1ed760; }"
     },
     {
       "name": "Mono Readout",
       "kind": "custom",
       "refersTo": "readout-mono",
-      "description": "Recessed monospace numeric readout for the transpose semitone value.",
-      "html": "<span class=\"ds-readout\">+2 st</span>",
-      "css": ".ds-readout { display: inline-block; background: #141516; border: 1px solid #37393c; border-radius: 4px; padding: 0.35rem 0.65rem; font: 700 1rem 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; color: #3ddc84; min-width: 5.5ch; text-align: center; box-shadow: inset 0 2px 4px rgba(0,0,0,0.6); }"
+      "description": "Flat monospace numeric readout for the transpose semitone value; the only place JetBrains Mono appears.",
+      "html": "<span class=\"ds-readout\">+0 st</span>",
+      "css": ".ds-readout { display: inline-block; background: #111214; border: 1px solid #313337; border-radius: 2px; padding: 0.4rem 0.7rem; font: 700 1rem 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; color: #1ed760; min-width: 5.5ch; text-align: center; }"
     },
     {
       "name": "Chord Module Panel",
       "kind": "card",
       "refersTo": "panel-module",
-      "description": "Signature component: one chord's self-contained rack module (LED header, diagram window with glow-pulse, Play footswitch).",
+      "description": "Signature component: one chord's self-contained flat card (LED header, SVG diagram window with glow-pulse-on-play, Play footswitch).",
       "html": "<div class=\"ds-module\"><div class=\"ds-module__label\"><span class=\"ds-led ds-led--green\"></span> G</div><div class=\"ds-module__window\"></div><button class=\"ds-footswitch\">Play</button></div>",
-      "css": ".ds-module { background: linear-gradient(180deg, #232527, #1b1c1e); border: 1px solid #37393c; border-radius: 8px; padding: 0.9rem; text-align: center; } .ds-module__label { font: 700 1.05rem 'Barlow Condensed', 'Arial Narrow', sans-serif; color: #e8e6df; display: flex; align-items: center; justify-content: center; gap: 0.4rem; margin-bottom: 0.35rem; } .ds-module__window { background: #141516; border: 1px solid #37393c; border-radius: 6px; padding: 0.4rem; margin-bottom: 0.6rem; box-shadow: inset 0 2px 6px rgba(0,0,0,0.6); } .ds-module__window--pulse { animation: ds-led-pulse 550ms ease-out; } @keyframes ds-led-pulse { 0% { box-shadow: inset 0 2px 6px rgba(0,0,0,0.6), 0 0 0 currentColor; } 40% { box-shadow: inset 0 2px 6px rgba(0,0,0,0.6), 0 0 16px currentColor; } 100% { box-shadow: inset 0 2px 6px rgba(0,0,0,0.6), 0 0 0 transparent; } }"
+      "css": ".ds-module { background: #1b1c1f; border: 1px solid #313337; border-radius: 4px; padding: 1rem; text-align: center; } .ds-module__label { font: 700 1.1rem 'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; color: #f2f2f0; display: flex; align-items: center; justify-content: center; gap: 0.4rem; margin-bottom: 0.4rem; } .ds-led--green { background: #1ed760; box-shadow: 0 0 6px 1px rgba(30,215,96,0.5); } .ds-module__window { background: #111214; border: 1px solid #313337; border-radius: 2px; padding: 0.5rem; margin-bottom: 0.6rem; } .ds-module__window--pulse { animation: ds-led-pulse 550ms ease-out; } @keyframes ds-led-pulse { 0% { box-shadow: 0 0 0 currentColor; } 40% { box-shadow: 0 0 16px currentColor; } 100% { box-shadow: 0 0 0 transparent; } }"
     }
   ],
   "narrative": {
-    "northStar": "The Pedalboard",
-    "overview": "Every control reads as a literal piece of effects-pedal gear, not a SaaS settings panel: a brushed-graphite chassis, footswitch-shaped buttons, a rotary knob with a real angle, and LEDs that report true machine state rather than decorate. This is the first design pass on a project that previously had zero visual design (default browser chrome only), built code-led with no approved visual comp — the direction brief and the shipped CSS/JSX are the only sources of truth, and they agree closely. The world is dark, dense, and technical: brushed-graphite panels layered with an actual SVG-noise grain texture (not a flat dark-mode gray), silkscreen-style condensed labels, and a strict green/amber/red LED law that never leaks into decoration. Depth comes from panel layering and inset 'carved' shadows, not drop shadows floating above the page.",
+    "northStar": "The Real Music Site",
+    "overview": "This is a redesign, pinned directly by the user, that replaces the project's entire prior visual identity: first a generic centered-card AI-tool look, then a brushed-graphite \"pedalboard/effects panel\" skin the user rejected as looking \"too AI\" and \"mechanical and dead.\" In their place is a full-width, flat, near-black page built to match the actual computed styles of Ultimate Guitar, Songsterr, and Spotify — sites this user researched directly rather than an abstract mood board. Nothing here is a metaphorical instrument or chassis; it is an ordinary, trustworthy web tool that happens to be about guitar chords. The page is flat and solid at every surface: no gradients, no texture, no bevels. A single saturated accent — a Spotify-green flat fill — carries every primary interactive and \"shown as played\" state; everything else is near-black or a step of gray. Corners are sharp (2-4px) everywhere except genuinely circular controls (the knob, LED dots). A full-bleed photographic guitar hero, properly licensed and credited on the page, replaces any abstract panel art, anchoring the whole system in a real instrument rather than an illustrated one. The LED semantic law — green/amber/red mapped exclusively to chord state — is the one rule that survives unchanged from the prior world, because it was never the thing the user objected to.",
     "keyCharacteristics": [
-      "Brushed-graphite chassis with a real grain texture, not a flat dark theme",
-      "LED color is law: green/amber/red map 1:1 to chord state, never used decoratively",
-      "Footswitch pill buttons and a rotary-knob stepper stand in for generic buttons/inputs",
-      "Condensed stencil display face paired with a monospace numeric readout",
-      "One authored motion moment: a played chord's diagram window glows in its LED color, nothing else animates"
+      "Flat, solid near-black surfaces at every layer; zero gradients, zero texture, zero embossing",
+      "One solid brand accent (#1ed760) as flat fill, never a tint or gradient",
+      "Sharp 2-4px corners everywhere; no pill shapes except true circles (knob, LEDs)",
+      "Single font family (Open Sans, every weight) across the entire UI; JetBrains Mono isolated to the transpose readout's digits",
+      "A full-bleed, credited photographic hero replaces all illustrated/panel imagery",
+      "LED color is law: green/amber/red map 1:1 to chord state, never used decoratively"
     ],
     "rules": [
-      { "name": "The LED Law", "body": "Green, amber, and red exist nowhere in this system except as chord-state signals (shown-as-played / capo-adjusted / unsupported). No badge, chip, success toast, or hover state may borrow an LED color for a meaning outside this trio.", "section": "colors" },
-      { "name": "The Two-Register Rule", "body": "Only two type roles exist: the stenciled display face (one headline, once per screen) and condensed Barlow Condensed for everything else, switching to JetBrains Mono only for live numeric readouts. No third display-weight face is introduced for emphasis.", "section": "typography" },
-      { "name": "The Carved, Not Lifted Rule", "body": "Shadows describe material (a bevel, a recess, a switch throw) or a lit LED. Nothing in this system uses a shadow purely to imply a card floating above its neighbors.", "section": "elevation" }
+      { "name": "The LED Law", "body": "Green, amber, and red exist nowhere in this system except as chord-state signals (shown-as-played / capo-adjusted / unsupported). No badge, toast, or hover state may borrow an LED color for a meaning outside this trio — including green, even though it doubles as the brand accent.", "section": "colors" },
+      { "name": "The One Accent Rule", "body": "Exactly one saturated brand color (#1ed760) exists outside the LED trio and focus ring. It is a flat fill only — never a gradient, tint, or tonal ramp — on primary/active interactive elements.", "section": "colors" },
+      { "name": "The One-Family Rule", "body": "Open Sans is the only typeface used for every role — headline, body, label, button — at whatever weight the role needs. JetBrains Mono is carved out for exactly one purpose: the live numeric transpose readout. No third face is introduced for emphasis or display.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "No box-shadow is used to lift any card, panel, button, or input above the page. Depth, where it exists at all, is a border and a fill-step, or (for LEDs only) an emissive glow.", "section": "elevation" }
     ],
     "dos": [
       "Do reserve green/amber/red exclusively for shown-as-played / capo-adjusted / unsupported chord state, per the LED Law.",
-      "Do use inset \"recessed\" shadows for anything meant to be carved into the panel (inputs, readouts, diagram windows), and only the footswitch's flat-press shadow for anything meant to be a physical switch.",
-      "Do pair the stencil display face with condensed Barlow Condensed and JetBrains Mono for numerals — no other typeface families.",
-      "Do give footswitch buttons a pill shape and a translateY(2px) press state; this is what distinguishes them from a generic button.",
-      "Do layer the SVG grain texture under any new large panel surface (header-scale or module-scale); a flat dark-gray panel is not on-brand for this world."
+      "Do keep every surface flat — solid fill plus a 1px border — with no gradients, texture, or drop shadows, per the Flat-By-Default Rule.",
+      "Do use Open Sans for every text role at whatever weight the role needs; reserve JetBrains Mono for the live numeric transpose readout only.",
+      "Do keep corners sharp (2-4px); reserve true circles for controls that are physically round (the knob, LED dots).",
+      "Do use the full-bleed, credited photographic hero as the system's imagery convention — real photography, not illustration or abstract panel art."
     ],
     "donts": [
-      "Don't use a drop shadow to lift a card above the page — this is a carved-chassis system, not a floating-card system (see The Carved, Not Lifted Rule).",
+      "Don't reintroduce a pill-shaped button or any rounded shape beyond 4px; the prior pedalboard world's pill footswitches are explicitly superseded, not an option to fall back to.",
+      "Don't add a metallic gradient, bevel, grain texture, or inset \"carved\" shadow to any surface; this build's whole point was removing that identity.",
       "Don't introduce a fourth accent color, or reuse green/amber/red for anything other than chord state (success toasts, generic highlights, etc.).",
-      "Don't use native OS <select> chrome; dropdowns get the gear-select treatment (appearance: none + inline SVG chevron).",
+      "Don't lock content to a small centered card; the layout is deliberately full-width.",
       "Don't add motion beyond the single LED-pulse-on-play moment; this system authors exactly one animation, not a general motion language."
     ]
   }

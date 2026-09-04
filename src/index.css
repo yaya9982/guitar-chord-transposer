@@ -1,33 +1,38 @@
 :root {
-  /* Panel surfaces: brushed dark-graphite gear, not a generic app dark mode */
-  --panel-bg: #1b1c1e;
-  --panel-raised: #232527;
-  --panel-recessed: #141516;
-  --panel-edge: #37393c;
-  --panel-edge-bright: #4a4d51;
+  /* Flat, solid surfaces -- no gradients, no metal-panel texture.
+     Near-black grounds match Ultimate Guitar / Songsterr / Spotify. */
+  --bg: #111214;
+  --surface: #1b1c1f;
+  --surface-raised: #232427;
+  --border: #313337;
+  --border-bright: #46484d;
 
-  /* Silkscreened ink */
-  --ink: #e8e6df;
-  --ink-dim: #8b8d90;
-  --ink-faint: #5c5e61;
+  --ink: #f2f2f0;
+  --ink-dim: #a3a5a9;
+  --ink-faint: #6b6d71;
 
-  /* LED semantic law: one color per state, never decorative elsewhere */
-  --led-green: #3ddc84;
-  --led-green-glow: rgba(61, 220, 132, 0.55);
-  --led-amber: #ffb020;
-  --led-amber-glow: rgba(255, 176, 32, 0.55);
+  /* Primary accent: a Spotify-green-style solid brand color, used for
+     buttons, focus, links, active state -- flat fill, never a gradient. */
+  --accent: #1ed760;
+  --accent-ink: #05150a;
+
+  /* LED semantic law: reserved for chord state only, never decorative. */
+  --led-green: #1ed760;
+  --led-green-glow: rgba(30, 215, 96, 0.5);
+  --led-amber: #ff9d2e;
+  --led-amber-glow: rgba(255, 157, 46, 0.5);
   --led-red: #ff5252;
-  --led-red-glow: rgba(255, 82, 82, 0.5);
-  --led-off: #45484c;
+  --led-red-glow: rgba(255, 82, 82, 0.45);
+  --led-off: #46484d;
 
   --focus-ring: #6fd0ff;
 
-  /* subtle brushed-metal grain, layered under panel gradients */
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-
-  --font-display: 'Big Shoulders Stencil', 'Arial Narrow', sans-serif;
-  --font-body: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Open Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Sharp, near-square corners -- not the rounded/pill defaults. */
+  --radius-sm: 2px;
+  --radius-md: 4px;
 
   color-scheme: dark;
   font-synthesis: none;
@@ -47,10 +52,9 @@ body {
 }
 
 body {
-  background: var(--panel-recessed);
+  background: var(--bg);
   color: var(--ink);
-  font: 500 17px/1.4 var(--font-body);
-  letter-spacing: 0.01em;
+  font: 400 16px/1.5 var(--font-body);
 }
 
 #root {
@@ -58,8 +62,8 @@ body {
 }
 
 ::selection {
-  background: var(--led-amber);
-  color: #1b1c1e;
+  background: var(--accent);
+  color: var(--accent-ink);
 }
 
 :focus-visible {
@@ -67,7 +71,6 @@ body {
   outline-offset: 2px;
 }
 
-/* tabular numerals for anything reading as a measurement */
 .mono {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
@@ -79,11 +82,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--panel-recessed);
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--panel-edge-bright);
-  border-radius: 6px;
-  border: 3px solid var(--panel-recessed);
+  background: var(--border-bright);
+  border-radius: var(--radius-md);
+  border: 3px solid var(--bg);
 }
