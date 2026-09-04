@@ -15,4 +15,9 @@ assert.deepEqual(getVoicings('C', 'not-a-real-quality'), []);
 assert.deepEqual(getVoicings('NotAKey', 'major'), []);
 assert.equal(pickEasiestVoicing([]), null);
 
+// Sharp keys ("C#", "F#") are stored under spelled-out property names
+// ("Csharp", "Fsharp") in the dataset — regression check for that mismatch.
+assert.ok(getVoicings('F#', 'minor').length > 0, 'expected F# minor voicings');
+assert.ok(getVoicings('C#', 'major').length > 0, 'expected C# major voicings');
+
 console.log('chordDb.js: all checks passed');

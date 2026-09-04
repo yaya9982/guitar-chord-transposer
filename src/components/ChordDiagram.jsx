@@ -29,17 +29,16 @@ export default function ChordDiagram({ voicing }) {
         <line key={`string-${i}`} x1={stringX(i)} y1={TOP} x2={stringX(i)} y2={fretY(FRET_COUNT)} stroke="currentColor" strokeWidth={1} />
       ))}
 
-      {barres.map(fret => {
-        const relativeFret = fret - baseFret + 1;
+      {barres.map(relativeFret => {
         const barredStrings = frets
-          .map((f, i) => (f === fret ? i : null))
+          .map((f, i) => (f === relativeFret ? i : null))
           .filter(i => i !== null);
         if (barredStrings.length < 2) return null;
         const first = Math.min(...barredStrings);
         const last = Math.max(...barredStrings);
         return (
           <rect
-            key={`barre-${fret}`}
+            key={`barre-${relativeFret}`}
             x={stringX(first) - 5}
             y={fretY(relativeFret - 1) + FRET_GAP / 2 - 5}
             width={stringX(last) - stringX(first) + 10}
@@ -58,8 +57,7 @@ export default function ChordDiagram({ voicing }) {
         if (fret === 0) {
           return <circle key={`mark-${i}`} cx={x} cy={TOP - 12} r={4} fill="none" stroke="currentColor" strokeWidth={1.5} />;
         }
-        const relativeFret = fret - baseFret + 1;
-        const y = fretY(relativeFret - 1) + FRET_GAP / 2;
+        const y = fretY(fret - 1) + FRET_GAP / 2;
         return (
           <g key={`mark-${i}`}>
             <circle cx={x} cy={y} r={6} fill="currentColor" />
