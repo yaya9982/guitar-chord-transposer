@@ -14,6 +14,12 @@ assert.deepEqual(parseChordSymbol('C7#9'), { root: 'C', quality: '7#9', bass: nu
 assert.deepEqual(parseChordSymbol('G7b5'), { root: 'G', quality: '7b5', bass: null, symbol: 'G7b5' });
 assert.deepEqual(parseChordSymbol('Dmaj7#5'), { root: 'D', quality: 'maj7#5', bass: null, symbol: 'Dmaj7#5' });
 
+// Power chords, "6/9" slash-quality normalization, and alternate spellings.
+assert.deepEqual(parseChordSymbol('C5'), { root: 'C', quality: '5', bass: null, symbol: 'C5' });
+assert.deepEqual(parseChordSymbol('C6/9'), { root: 'C', quality: '69', bass: null, symbol: 'C6/9' });
+assert.deepEqual(parseChordSymbol('Cadd2'), { root: 'C', quality: 'add9', bass: null, symbol: 'Cadd2' });
+assert.deepEqual(parseChordSymbol('Ami7'), { root: 'A', quality: 'm7', bass: null, symbol: 'Ami7' });
+
 const parsed = parseProgression('G, D Em  C');
 assert.equal(parsed.length, 4);
 assert.equal(parsed[2].chord.root, 'E');

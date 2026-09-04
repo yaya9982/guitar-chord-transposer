@@ -38,6 +38,9 @@ const QUALITY_ALIASES = {
   'mmaj9': 'mmaj9',
   'mmaj11': 'mmaj11',
   'alt': 'alt', '7alt': 'alt',
+  '5': '5',
+  'add2': 'add9', 'madd2': 'madd9',
+  'mi': 'minor', 'mi7': 'm7', 'ma7': 'maj7', 'ma9': 'maj9',
 };
 
 // Every db suffix this table maps to, keyed back to a display symbol —
@@ -52,13 +55,17 @@ export const QUALITY_LABELS = {
   '7b5': '7b5', aug7: '7#5', '9b5': '9b5', aug9: '9#5', '7b9': '7b9',
   '7#9': '7#9', '9#11': '9#11', maj7b5: 'maj7b5', 'maj7#5': 'maj7#5',
   mmaj7b5: 'mmaj7b5', mmaj9: 'mmaj9', mmaj11: 'mmaj11', alt: 'alt',
+  '5': '5',
 };
 
 const CHORD_RE = /^([A-Ga-g][#b]?)([A-Za-z0-9+#\-]*)(?:\/([A-Ga-g][#b]?))?$/;
 
 export function parseChordSymbol(symbol) {
   const trimmed = symbol.trim();
-  const match = CHORD_RE.exec(trimmed);
+  // "6/9" is a quality (add a 6th and a 9th), not a slash bass note --
+  // normalize before the bass-note regex would otherwise choke on "/9".
+  const normalized = trimmed.replace(/6\/9/i, '69');
+  const match = CHORD_RE.exec(normalized);
   if (!match) return null;
   const [, rawRoot, rawQuality, rawBass] = match;
   const quality = QUALITY_ALIASES[rawQuality.toLowerCase()];
