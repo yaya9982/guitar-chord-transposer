@@ -1,3 +1,27 @@
 {
-  "buildPath": "code"
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#6b6e72",
+        "createdAt": "2026-09-04T16:04:58.986Z",
+        "reason": "one-off metal highlight for the decorative 6x6px screw-head dot in .screw, used exactly once; not a reusable UI color"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255, 255, 255, 0.08)",
+        "createdAt": "2026-09-04T16:05:10.140Z",
+        "reason": "DESIGN.md's palette section explicitly reserves panel-edge-bright for 'the knob's metal highlight' -- this is that highlight's bevel opacity, one step brighter than the footswitch's documented 0.06, and intentional"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "1px",
+        "createdAt": "2026-09-04T16:05:10.298Z",
+        "reason": "the 2px-wide knob indicator notch is a graphic needle, not a container -- any documented container radius (4/6/8/999px) would turn it into a capsule and destroy the shape"
+      }
+    ]
+  }
 }

@@ -268,7 +268,7 @@
 
 .rack-empty {
   color: var(--ink-dim);
-  font-size: 0.85rem;
+  font-size: 0.72rem;
   padding: 1.5rem 0;
   text-align: center;
   border: 1px dashed var(--panel-edge);
@@ -301,7 +301,7 @@
 }
 
 .module-note {
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   color: var(--ink-dim);
   padding: 1rem 0;
 }
