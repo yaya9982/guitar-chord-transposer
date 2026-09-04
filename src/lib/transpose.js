@@ -14,8 +14,9 @@ function resolveAt(root, quality, capoFret, soundingRoot, bassInterval) {
 
   let bass = null;
   if (bassInterval !== null) {
-    const bassSemitone = ((noteNameToSemitone(root) + bassInterval) % 12 + 12) % 12;
-    const withBass = applyBassNote(voicing, bassSemitone);
+    const rootSemitone = noteNameToSemitone(root);
+    const bassSemitone = (rootSemitone + bassInterval) % 12;
+    const withBass = applyBassNote(voicing, bassSemitone, rootSemitone);
     // applyBassNote returns the same reference unchanged when no viable
     // string was found -- only claim the slash bass when it actually landed.
     if (withBass !== voicing) {

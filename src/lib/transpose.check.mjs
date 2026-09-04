@@ -39,11 +39,17 @@ assert.equal(dOverA.bass, 'A');
 // A chord with no bass keeps bass === null (no accidental slash label).
 assert.equal(free.bass, null);
 
-// C/B: B isn't reachable from C major's open shape, so it falls back to
-// the plain voicing -- bass must stay null, not silently claim a bass
-// note the diagram doesn't actually show.
+// C/B: B isn't reachable by adding a note to the muted low E string, but
+// retargeting the A string (root C, doubled elsewhere) down to fret 2
+// gives the standard x-2-2-0-1-0 fingering.
 const cOverB = resolveFreeChord({ root: 'C', quality: 'major', bass: 'B' }, 0);
-assert.equal(cOverB.bass, null);
-assert.deepEqual(cOverB.voicing.frets, [-1, 3, 2, 0, 1, 0]);
+assert.equal(cOverB.bass, 'B');
+assert.deepEqual(cOverB.voicing.frets, [-1, 2, 2, 0, 1, 0]);
+
+// A chord whose root would vanish entirely if its lowest string were
+// retargeted, and which has no muted string to add to instead, falls
+// back honestly rather than dropping the root: bass stays null.
+const noEscape = resolveFreeChord({ root: 'F', quality: 'major', bass: 'D' }, 0);
+assert.equal(noEscape.bass, null);
 
 console.log('transpose.js: all checks passed');
