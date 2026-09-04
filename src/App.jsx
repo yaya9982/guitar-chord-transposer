@@ -1,122 +1,60 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState, useMemo } from 'react';
+import { parseProgression } from './lib/chordParser.js';
+import { resolveFreeChord, resolveCapoAtFret, resolveCapoSuggestion } from './lib/transpose.js';
+import ChordInput from './components/ChordInput.jsx';
+import TransposeControls from './components/TransposeControls.jsx';
+import ModeToggle from './components/ModeToggle.jsx';
+import ProgressionView from './components/ProgressionView.jsx';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [inputText, setInputText] = useState('G D Em C');
+  const [semitoneShift, setSemitoneShift] = useState(0);
+  const [mode, setMode] = useState('free');
+  const [capoOverride, setCapoOverride] = useState(null);
+
+  const parsed = useMemo(() => parseProgression(inputText), [inputText]);
+  const validChords = useMemo(() => parsed.map(p => p.chord).filter(Boolean), [parsed]);
+
+  const suggestion = useMemo(
+    () => (mode === 'capo' ? resolveCapoSuggestion(validChords, semitoneShift) : null),
+    [mode, validChords, semitoneShift]
+  );
+
+  const effectiveCapoFret = capoOverride ?? suggestion?.capoFret ?? 0;
+
+  const items = useMemo(() => {
+    if (mode === 'free') {
+      return parsed.map(p => ({ token: p.token, resolved: p.chord ? resolveFreeChord(p.chord, semitoneShift) : null }));
+    }
+    const capoResolved = resolveCapoAtFret(validChords, semitoneShift, effectiveCapoFret);
+    let capoIndex = 0;
+    return parsed.map(p => {
+      if (!p.chord) return { token: p.token, resolved: null };
+      const resolved = capoResolved[capoIndex];
+      capoIndex += 1;
+      return { token: p.token, resolved };
+    });
+  }, [parsed, validChords, mode, semitoneShift, effectiveCapoFret]);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <div style={{ maxWidth: 700, margin: '0 auto', padding: '1rem' }}>
+      <h1>Guitar Chord Transposer</h1>
+      <ChordInput value={inputText} onChange={setInputText} />
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1rem 0' }}>
+        <TransposeControls
+          semitoneShift={semitoneShift}
+          onShiftChange={setSemitoneShift}
+          firstChordRoot={validChords[0]?.root ?? null}
+        />
+        <ModeToggle
+          mode={mode}
+          onModeChange={newMode => { setMode(newMode); setCapoOverride(null); }}
+          capoFret={effectiveCapoFret}
+          onCapoOverrideChange={setCapoOverride}
+        />
+      </div>
+      <ProgressionView items={items} />
+    </div>
+  );
 }
-
-export default App
