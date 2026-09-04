@@ -44,7 +44,9 @@ export function playVoicing(voicing, { capoFret = 0, strumMs = 25, ctx = getAudi
   });
 }
 
-export function playProgression(resolvedChords, { chordGapMs = 900 } = {}) {
+export const DEFAULT_CHORD_GAP_MS = 900;
+
+export function playProgression(resolvedChords, { chordGapMs = DEFAULT_CHORD_GAP_MS } = {}) {
   const ctx = getAudioContext();
   resolvedChords.forEach((resolved, i) => {
     if (!resolved) return;

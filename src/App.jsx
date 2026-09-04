@@ -38,10 +38,21 @@ export default function App() {
   }, [parsed, validChords, mode, semitoneShift, effectiveCapoFret]);
 
   return (
-    <div style={{ maxWidth: 700, margin: '0 auto', padding: '1rem' }}>
-      <h1>Guitar Chord Transposer</h1>
-      <ChordInput value={inputText} onChange={setInputText} />
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1rem 0' }}>
+    <div className="rig">
+      <header className="panel-plate">
+        <span className="screw screw--tl" />
+        <span className="screw screw--tr" />
+        <span className="screw screw--bl" />
+        <span className="screw screw--br" />
+        <h1 className="title">Chord Transposer</h1>
+        <p className="tagline">Signal path: input &rarr; transpose &rarr; output</p>
+      </header>
+
+      <div className="input-module">
+        <ChordInput value={inputText} onChange={setInputText} />
+      </div>
+
+      <div className="control-strip">
         <TransposeControls
           semitoneShift={semitoneShift}
           onShiftChange={setSemitoneShift}
@@ -54,6 +65,7 @@ export default function App() {
           onCapoOverrideChange={setCapoOverride}
         />
       </div>
+
       <ProgressionView items={items} />
     </div>
   );

@@ -7,8 +7,9 @@ const TOP = 30;
 const STRING_GAP = (WIDTH - LEFT * 2) / (STRING_COUNT - 1);
 const FRET_GAP = (HEIGHT - TOP - 10) / FRET_COUNT;
 
-export default function ChordDiagram({ voicing }) {
+export default function ChordDiagram({ voicing, accent = '--led-green' }) {
   const { frets, fingers, baseFret, barres } = voicing;
+  const litColor = `var(${accent})`;
 
   const stringX = i => LEFT + i * STRING_GAP;
   const fretY = f => TOP + f * FRET_GAP;
@@ -16,17 +17,17 @@ export default function ChordDiagram({ voicing }) {
   return (
     <svg width={WIDTH} height={HEIGHT} viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
       {baseFret === 1 ? (
-        <rect x={LEFT - 2} y={TOP - 4} width={WIDTH - LEFT * 2 + 4} height={4} fill="currentColor" />
+        <rect x={LEFT - 2} y={TOP - 4} width={WIDTH - LEFT * 2 + 4} height={4} fill="var(--ink)" />
       ) : (
-        <text x={LEFT - 12} y={TOP + FRET_GAP / 2} fontSize="10" fill="currentColor">{baseFret}fr</text>
+        <text x={LEFT - 14} y={TOP + FRET_GAP / 2 + 3} fontSize="10" fontFamily="var(--font-mono)" fill="var(--ink-dim)">{baseFret}fr</text>
       )}
 
       {Array.from({ length: FRET_COUNT + 1 }, (_, f) => (
-        <line key={`fret-${f}`} x1={LEFT} y1={fretY(f)} x2={WIDTH - LEFT} y2={fretY(f)} stroke="currentColor" strokeWidth={1} />
+        <line key={`fret-${f}`} x1={LEFT} y1={fretY(f)} x2={WIDTH - LEFT} y2={fretY(f)} stroke="var(--ink-faint)" strokeWidth={1} />
       ))}
 
       {Array.from({ length: STRING_COUNT }, (_, i) => (
-        <line key={`string-${i}`} x1={stringX(i)} y1={TOP} x2={stringX(i)} y2={fretY(FRET_COUNT)} stroke="currentColor" strokeWidth={1} />
+        <line key={`string-${i}`} x1={stringX(i)} y1={TOP} x2={stringX(i)} y2={fretY(FRET_COUNT)} stroke="var(--ink-faint)" strokeWidth={1} />
       ))}
 
       {barres.map(relativeFret => {
@@ -44,7 +45,7 @@ export default function ChordDiagram({ voicing }) {
             width={stringX(last) - stringX(first) + 10}
             height={10}
             rx={5}
-            fill="currentColor"
+            fill={litColor}
           />
         );
       })}
@@ -52,17 +53,17 @@ export default function ChordDiagram({ voicing }) {
       {frets.map((fret, i) => {
         const x = stringX(i);
         if (fret === -1) {
-          return <text key={`mark-${i}`} x={x - 4} y={TOP - 10} fontSize="12" fill="currentColor">x</text>;
+          return <text key={`mark-${i}`} x={x - 4} y={TOP - 10} fontSize="12" fontFamily="var(--font-mono)" fill="var(--ink-dim)">x</text>;
         }
         if (fret === 0) {
-          return <circle key={`mark-${i}`} cx={x} cy={TOP - 12} r={4} fill="none" stroke="currentColor" strokeWidth={1.5} />;
+          return <circle key={`mark-${i}`} cx={x} cy={TOP - 12} r={4} fill="none" stroke="var(--ink-dim)" strokeWidth={1.5} />;
         }
         const y = fretY(fret - 1) + FRET_GAP / 2;
         return (
           <g key={`mark-${i}`}>
-            <circle cx={x} cy={y} r={6} fill="currentColor" />
+            <circle cx={x} cy={y} r={6} fill={litColor} />
             {fingers[i] > 0 && (
-              <text x={x - 3} y={y + 4} fontSize="9" fill="var(--diagram-bg, white)">{fingers[i]}</text>
+              <text x={x - 3} y={y + 4} fontSize="9" fontFamily="var(--font-mono)" fill="var(--panel-recessed)">{fingers[i]}</text>
             )}
           </g>
         );

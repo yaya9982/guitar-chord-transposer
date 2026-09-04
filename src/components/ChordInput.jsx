@@ -10,14 +10,14 @@ export default function ChordInput({ value, onChange }) {
     <div>
       <input
         type="text"
+        className="patch-input"
         value={value}
         onChange={e => onChange(e.target.value)}
         placeholder="e.g. G D Em C"
-        style={{ width: '100%', fontSize: '1rem', padding: '0.5rem' }}
       />
-      <div style={{ marginTop: '0.5rem', display: 'flex', gap: '0.25rem', flexWrap: 'wrap' }}>
+      <div className="chord-buttons">
         {COMMON_CHORDS.map(c => (
-          <button key={c} type="button" onClick={() => append(c)}>{c}</button>
+          <button key={c} type="button" className="footswitch" onClick={() => append(c)}>{c}</button>
         ))}
       </div>
     </div>

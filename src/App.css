@@ -1,3 +1,335 @@
-body {
-  font-family: system-ui, sans-serif;
+.rig {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+/* ---- panel plate (header) ---- */
+
+.panel-plate {
+  position: relative;
+  background: var(--grain), linear-gradient(180deg, var(--panel-raised), var(--panel-bg));
+  border: 1px solid var(--panel-edge);
+  border-radius: 6px;
+  padding: 1.1rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.screw {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #6b6e72, #202224);
+}
+.screw--tl { top: 8px; left: 10px; }
+.screw--tr { top: 8px; right: 10px; }
+.screw--bl { bottom: 8px; left: 10px; }
+.screw--br { bottom: 8px; right: 10px; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.tagline {
+  font: 600 0.75rem/1 var(--font-body);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin: 0.4rem 0 0;
+}
+
+/* ---- input module ---- */
+
+.input-module {
+  margin-bottom: 1.5rem;
+}
+
+.patch-input {
+  width: 100%;
+  background: var(--panel-recessed);
+  border: 1px solid var(--panel-edge);
+  border-radius: 4px;
+  padding: 0.65rem 0.85rem;
+  color: var(--ink);
+  font: 600 1.15rem/1.3 var(--font-body);
+  letter-spacing: 0.02em;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.patch-input::placeholder {
+  color: var(--ink-dim);
+}
+
+.chord-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+/* ---- footswitch buttons ---- */
+
+.footswitch {
+  background: linear-gradient(180deg, var(--panel-edge-bright), var(--panel-bg));
+  border: 1px solid var(--panel-edge);
+  border-radius: 999px;
+  color: var(--ink);
+  font: 600 0.85rem/1 var(--font-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.footswitch:hover:not(:disabled) {
+  border-color: var(--panel-edge-bright);
+}
+
+.footswitch:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+}
+
+.footswitch:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.footswitch--stepper {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+}
+
+/* ---- LED semantic law ---- */
+
+.led {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--led-off);
+  vertical-align: middle;
+}
+
+.led--green { background: var(--led-green); box-shadow: 0 0 6px 1px var(--led-green-glow); }
+.led--amber { background: var(--led-amber); box-shadow: 0 0 6px 1px var(--led-amber-glow); }
+.led--red { background: var(--led-red); box-shadow: 0 0 6px 1px var(--led-red-glow); }
+
+/* ---- control strip ---- */
+
+.control-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.control-module {
+  background: var(--grain), var(--panel-bg);
+  border: 1px solid var(--panel-edge);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  flex: 1 1 220px;
+}
+
+.control-module__label {
+  display: block;
+  font: 600 0.7rem/1 var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: 0.6rem;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* real rotary-knob affordance for the transpose stepper: a spinning
+   indicator notch, driven by --knob-angle set inline per current value */
+.knob {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: radial-gradient(circle at 35% 30%, var(--panel-edge-bright), var(--panel-bg) 70%);
+  border: 1px solid var(--panel-edge);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.knob__notch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 13px;
+  background: var(--led-green);
+  border-radius: 1px;
+  transform-origin: 50% 0%;
+  transform: translate(-50%, -100%) rotate(var(--knob-angle, 0deg));
+}
+
+.readout {
+  background: var(--panel-recessed);
+  border: 1px solid var(--panel-edge);
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  font: 700 1rem var(--font-mono);
+  color: var(--led-green);
+  min-width: 5.5ch;
+  text-align: center;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.gear-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--panel-recessed);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0L5 6L10 0Z' fill='%238b8d90'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  border: 1px solid var(--panel-edge);
+  border-radius: 4px;
+  color: var(--ink);
+  font: 600 0.9rem var(--font-body);
+  padding: 0.4rem 1.6rem 0.4rem 0.5rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gear-select:focus {
+  border-color: var(--focus-ring);
+}
+
+.gear-select:disabled {
+  cursor: not-allowed;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  min-height: 2.1rem;
+}
+
+.field-row--dim {
+  opacity: 0.35;
+}
+
+.field-row__label {
+  font: 600 0.75rem var(--font-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.mode-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footswitch--on {
+  border-color: var(--led-green);
+}
+
+/* ---- rack of chord modules ---- */
+
+.rack {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.rack--below-transport {
+  margin-top: 0.75rem;
+}
+
+.module-panel {
+  background: var(--grain), linear-gradient(180deg, var(--panel-raised), var(--panel-bg));
+  border: 1px solid var(--panel-edge);
+  border-radius: 8px;
+  padding: 0.9rem;
+  text-align: center;
+}
+
+.rack-empty {
+  color: var(--ink-dim);
+  font-size: 0.85rem;
+  padding: 1.5rem 0;
+  text-align: center;
+  border: 1px dashed var(--panel-edge);
+  border-radius: 8px;
+}
+
+.module-panel--unsupported {
+  border-color: var(--led-red);
+}
+
+.module-label {
+  font: 700 1.05rem var(--font-body);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.module-panel--unsupported .module-label {
+  color: var(--led-red);
+}
+
+.module-sub {
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  margin-bottom: 0.5rem;
+}
+
+.module-note {
+  font-size: 0.82rem;
+  color: var(--ink-dim);
+  padding: 1rem 0;
+}
+
+.diagram-window {
+  background: var(--panel-recessed);
+  border: 1px solid var(--panel-edge);
+  border-radius: 6px;
+  padding: 0.4rem;
+  margin-bottom: 0.6rem;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+  color: var(--pulse-color, var(--led-green));
+}
+
+/* ---- the one authored motion: a played module's LED window pulses ---- */
+
+@keyframes led-pulse {
+  0% { box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6), 0 0 0 currentColor; }
+  40% { box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6), 0 0 16px currentColor; }
+  100% { box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6), 0 0 0 transparent; }
+}
+
+.diagram-window--pulse {
+  animation: led-pulse 550ms ease-out;
+}
+
+@media (max-width: 480px) {
+  .rig { padding: 1.25rem 0.85rem 2rem; }
+  .control-strip { flex-direction: column; }
+  .rack { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
 }

@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Impeccable transient artifacts (screenshots/hook cache regenerate per run)
+.impeccable/review/
+.impeccable/hook.cache.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
