@@ -19,9 +19,13 @@ export function getVoicings(dbKeyRoot, quality) {
 
 export function pickEasiestVoicing(positions) {
   if (!positions || positions.length === 0) return null;
+  // Fret position dominates real-world difficulty -- a low barre chord
+  // (e.g. Bm at fret 1) is what guitarists actually reach for, not a
+  // barre-free voicing stretched up at fret 9+. Sorting barre-free first
+  // picked exactly that high, awkward voicing over the standard low one.
   return [...positions].sort((a, b) =>
-    a.barres.length !== b.barres.length
-      ? a.barres.length - b.barres.length
-      : a.baseFret - b.baseFret
+    a.baseFret !== b.baseFret
+      ? a.baseFret - b.baseFret
+      : a.barres.length - b.barres.length
   )[0];
 }

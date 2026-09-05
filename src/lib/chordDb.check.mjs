@@ -24,4 +24,11 @@ assert.ok(getVoicings('C#', 'major').length > 0, 'expected C# major voicings');
 const c5 = pickEasiestVoicing(getVoicings('C', '5'));
 assert.deepEqual(c5.frets, [-1, 1, 3, -1, -1, -1]);
 
+// Bm's dataset has a standard low barre chord (baseFret 1) alongside two
+// barre-free voicings stretched up at fret 9 and 10. Position must win:
+// the low barre chord is what guitarists actually play, not the high stretch.
+const bMinorEasiest = pickEasiestVoicing(getVoicings('B', 'minor'));
+assert.equal(bMinorEasiest.baseFret, 1);
+assert.deepEqual(bMinorEasiest.barres, [2]);
+
 console.log('chordDb.js: all checks passed');
