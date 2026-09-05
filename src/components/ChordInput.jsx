@@ -1,3 +1,5 @@
+import Footswitch from '../ui/Footswitch.jsx';
+
 const COMMON_CHORDS = ['C', 'Dm', 'Em', 'F', 'G', 'Am', 'Bdim'];
 
 export default function ChordInput({ value, onChange }) {
@@ -17,7 +19,7 @@ export default function ChordInput({ value, onChange }) {
       />
       <div className="chord-buttons">
         {COMMON_CHORDS.map(c => (
-          <button key={c} type="button" className="footswitch" onClick={() => append(c)}>{c}</button>
+          <Footswitch key={c} onClick={() => append(c)}>{c}</Footswitch>
         ))}
       </div>
     </div>

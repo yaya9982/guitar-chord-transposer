@@ -3,6 +3,7 @@ import ChordDiagram from './ChordDiagram.jsx';
 import { QUALITY_LABELS } from '../lib/chordParser.js';
 import { playVoicing } from '../lib/audio.js';
 import { transposeNote, noteNameToSemitone } from '../lib/notes.js';
+import Footswitch from '../ui/Footswitch.jsx';
 
 const PULSE_MS = 550;
 
@@ -50,13 +51,9 @@ export default function ChordCard({ resolved, token, isActive = false }) {
       >
         <ChordDiagram voicing={voicing} accent={accent} />
       </div>
-      <button
-        type="button"
-        className="footswitch"
-        onClick={() => { playVoicing(voicing, { capoFret }); setLocalPulse(true); }}
-      >
+      <Footswitch onClick={() => { playVoicing(voicing, { capoFret }); setLocalPulse(true); }}>
         Play
-      </button>
+      </Footswitch>
     </div>
   );
 }

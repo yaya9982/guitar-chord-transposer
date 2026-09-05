@@ -16,6 +16,9 @@ dist-ssr
 .impeccable/review/
 .impeccable/hook.cache.json
 
+# Saved reference pages (research material, not project source)
+fender.html
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

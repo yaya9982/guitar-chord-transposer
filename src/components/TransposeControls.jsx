@@ -1,4 +1,5 @@
 import { DB_KEYS, noteNameToSemitone } from '../lib/notes.js';
+import Footswitch from '../ui/Footswitch.jsx';
 
 export default function TransposeControls({ semitoneShift, onShiftChange, firstChordRoot }) {
   const onTargetKeyChange = e => {
@@ -21,12 +22,12 @@ export default function TransposeControls({ semitoneShift, onShiftChange, firstC
     <div className="control-module">
       <span className="control-module__label">Transpose</span>
       <div className="stepper">
-        <button type="button" className="footswitch footswitch--stepper" onClick={() => onShiftChange(semitoneShift - 1)}>-</button>
+        <Footswitch stepper onClick={() => onShiftChange(semitoneShift - 1)}>-</Footswitch>
         <span className="knob" aria-hidden="true">
           <span className="knob__notch" style={{ '--knob-angle': `${knobAngle}deg` }} />
         </span>
         <span className="readout mono">{semitoneShift >= 0 ? `+${semitoneShift}` : semitoneShift} st</span>
-        <button type="button" className="footswitch footswitch--stepper" onClick={() => onShiftChange(semitoneShift + 1)}>+</button>
+        <Footswitch stepper onClick={() => onShiftChange(semitoneShift + 1)}>+</Footswitch>
       </div>
       <div className={`field-row${firstChordRoot ? '' : ' field-row--dim'}`}>
         <label className="field-row__label" htmlFor="target-key">Key</label>

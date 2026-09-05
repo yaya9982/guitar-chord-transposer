@@ -7,10 +7,14 @@
 
 .hero {
   width: 100%;
-  background-image: linear-gradient(rgba(10, 10, 12, 0.55), rgba(10, 10, 12, 0.82)), var(--hero-image);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: linear-gradient(rgba(10, 10, 12, 0.2), rgba(10, 10, 12, 0.88)), var(--hero-image);
   background-size: cover;
   background-position: center 60%;
-  padding: 3rem clamp(1rem, 4vw, 3rem) 2rem;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
 }
 
 .title {
@@ -181,7 +185,10 @@
   width: 2px;
   height: 13px;
   background: var(--accent);
-  transform-origin: 50% 0%;
+  /* pivot (bottom of the bar) anchored at the knob center; origin at the
+     bottom means rotation swings the far tip around a fixed pivot, not
+     the other way around */
+  transform-origin: 50% 100%;
   transform: translate(-50%, -100%) rotate(var(--knob-angle, 0deg));
 }
 

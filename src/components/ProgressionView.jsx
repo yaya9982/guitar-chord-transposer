@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import ChordCard from './ChordCard.jsx';
 import { playProgression, DEFAULT_CHORD_GAP_MS } from '../lib/audio.js';
+import Footswitch from '../ui/Footswitch.jsx';
 
 const PULSE_MS = 550;
 
@@ -24,9 +25,9 @@ export default function ProgressionView({ items }) {
 
   return (
     <div>
-      <button type="button" className="footswitch" disabled={validResolved.length === 0} onClick={playAll}>
+      <Footswitch disabled={validResolved.length === 0} onClick={playAll}>
         Play all
-      </button>
+      </Footswitch>
       {items.length === 0 ? (
         <div className="rack-empty rack--below-transport">Type a progression to see it here.</div>
       ) : (
